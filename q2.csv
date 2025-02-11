@@ -1,0 +1,41 @@
+// WAP to find the square of a number using pass by value and pass by refrence 
+
+using System;
+
+class SquareCalculator
+{
+    // Pass-by-Value method to calculate the square
+    public void SquareByValue(int num)
+    {
+        num = num * num;  // Calculate the square of the number
+        Console.WriteLine($"Square (by value): {num}");
+    }
+
+    // Pass-by-Reference method to calculate the square
+    public void SquareByReference(ref int num)
+    {
+        num = num * num;  // Calculate the square of the number
+        Console.WriteLine($"Square (by reference): {num}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Create an instance of SquareCalculator
+        SquareCalculator calculator = new SquareCalculator();
+
+        // Pass-by-Value example
+        int number1 = 5;
+        Console.WriteLine($"Original number before pass-by-value: {number1}");
+        calculator.SquareByValue(number1);  // Pass number1 by value
+        Console.WriteLine($"Original number after pass-by-value: {number1}\n");
+
+        // Pass-by-Reference example
+        int number2 = 6;
+        Console.WriteLine($"Original number before pass-by-reference: {number2}");
+        calculator.SquareByReference(ref number2);  // Pass number2 by reference
+        Console.WriteLine($"Original number after pass-by-reference: {number2}");
+    }
+}
