@@ -1,0 +1,55 @@
+// WAP to find smallest element in an array 
+
+using System;
+
+class FindSmallestElement
+{
+    // Method to find the smallest element in the array
+    public int FindSmallest(int[] arr)
+    {
+        // Assume the first element is the smallest
+        int smallest = arr[0];
+
+        // Loop through the array to find the smallest element
+        for (int i = 1; i < arr.Length; i++)
+        {
+            if (arr[i] < smallest)
+            {
+                smallest = arr[i];  // Update smallest if a smaller element is found
+            }
+        }
+
+        return smallest;  // Return the smallest element
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Ask the user to input the size of the array
+        Console.WriteLine("Enter the number of elements in the array:");
+        int size = int.Parse(Console.ReadLine());
+
+        // Declare the array with the size entered by the user
+        int[] arr = new int[size];
+
+        // Ask the user to input the elements of the array
+        Console.WriteLine($"Enter {size} elements of the array:");
+
+        for (int i = 0; i < size; i++)
+        {
+            Console.Write($"Element {i + 1}: ");
+            arr[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Create an instance of the FindSmallestElement class
+        FindSmallestElement finder = new FindSmallestElement();
+
+        // Find the smallest element in the array
+        int smallest = finder.FindSmallest(arr);
+
+        // Output the smallest element
+        Console.WriteLine($"The smallest element in the array is: {smallest}");
+    }
+}
