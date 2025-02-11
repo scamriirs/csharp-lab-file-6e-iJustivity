@@ -1,0 +1,40 @@
+// WAP to find the integer and fractional part of number using out keyword
+
+using System;
+
+class NumberParts
+{
+    // Method that finds the integer and fractional parts of a number
+    public void GetParts(double number, out int integerPart, out double fractionalPart)
+    {
+        // Integer part (by casting to int)
+        integerPart = (int)number;
+
+        // Fractional part (by subtracting integer part from the original number)
+        fractionalPart = number - integerPart;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Create an instance of NumberParts
+        NumberParts parts = new NumberParts();
+
+        // Input number
+        double number = 23.456;
+
+        // Declare variables for integer and fractional parts
+        int integerPart;
+        double fractionalPart;
+
+        // Call the method using the out keyword
+        parts.GetParts(number, out integerPart, out fractionalPart);
+
+        // Display the results
+        Console.WriteLine($"Original number: {number}");
+        Console.WriteLine($"Integer part: {integerPart}");
+        Console.WriteLine($"Fractional part: {fractionalPart}");
+    }
+}
