@@ -1,0 +1,51 @@
+// Create a program to find the sum of largest sequence of positive number in 1D array
+
+using System;
+
+class LargestPositiveSequenceSum
+{
+    static void Main()
+    {
+        // Sample array
+        int[] arr = { 1, 2, -3, 4, 5, 6, -1, 2, 3, 4, -2, 8, 9 };
+
+        Console.WriteLine("Array:");
+        PrintArray(arr);
+
+        // Finding the sum of the largest sequence of positive numbers
+        int maxSum = FindLargestPositiveSequenceSum(arr);
+
+        Console.WriteLine("\nSum of the largest sequence of positive numbers: " + maxSum);
+    }
+
+    // Method to find the sum of the largest sequence of positive numbers
+    static int FindLargestPositiveSequenceSum(int[] arr)
+    {
+        int maxSum = 0, currentSum = 0;
+
+        foreach (int num in arr)
+        {
+            if (num > 0)
+            {
+                currentSum += num;
+                maxSum = Math.Max(maxSum, currentSum);
+            }
+            else
+            {
+                currentSum = 0; // Reset sum when encountering a negative number
+            }
+        }
+
+        return maxSum;
+    }
+
+    // Method to print the array
+    static void PrintArray(int[] arr)
+    {
+        foreach (int num in arr)
+        {
+            Console.Write(num + " ");
+        }
+        Console.WriteLine();
+    }
+}
