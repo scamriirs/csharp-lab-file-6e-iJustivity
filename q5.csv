@@ -1,0 +1,31 @@
+using System;
+
+class MethodOverloadingExample
+{
+    // Method to add two integers
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    // Method to add three integers (overloaded)
+    public int Add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+
+    // Method to add two double values (overloaded)
+    public double Add(double a, double b)
+    {
+        return a + b;
+    }
+
+    static void Main()
+    {
+        MethodOverloadingExample obj = new MethodOverloadingExample();
+        
+        Console.WriteLine("Sum of 10 and 20: " + obj.Add(10, 20));
+        Console.WriteLine("Sum of 10, 20, and 30: " + obj.Add(10, 20, 30));
+        Console.WriteLine("Sum of 5.5 and 2.2: " + obj.Add(5.5, 2.2));
+    }
+}
