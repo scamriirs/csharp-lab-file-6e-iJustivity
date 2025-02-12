@@ -1,0 +1,55 @@
+using System;
+
+class SumOf2DMatrix
+{
+    static void Main()
+    {
+        // Define a 2D matrix
+        int[,] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        Console.WriteLine("Matrix:");
+        PrintMatrix(matrix);
+
+        // Calculate the sum of all elements
+        int sum = CalculateSum(matrix);
+
+        Console.WriteLine("\nSum of all elements in the matrix: " + sum);
+    }
+
+    // Method to calculate sum of elements in the matrix
+    static int CalculateSum(int[,] matrix)
+    {
+        int sum = 0;
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                sum += matrix[i, j]; // Adding each element to sum
+            }
+        }
+        return sum;
+    }
+
+    // Method to print the matrix
+    static void PrintMatrix(int[,] matrix)
+    {
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(matrix[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
