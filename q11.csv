@@ -1,0 +1,105 @@
+// Write a C# program to implement an **interface** for a class `Person` with attributes `Name`, `Address`, and `ContactNo`, and methods `SetData(string n, string a, int c)` to store details and `DisplayData()` to display them. Create a `Student` class inheriting `Person` with attributes `ID` and `Marks`, and methods `GetDetail(int i, int m)`, `DisplayDetail()`, and `CalculateResult(string s, int m)`. Implement an interface `IResult` with the method `CalculateResult(string s, int m)`, which `Student` must override. Take user input to check if the student is a sports person—if yes, add 5 extra marks; otherwise, display the marks as they are. Use **inheritance, interface implementation, method overriding, and user input handling** to compute and display the final marks.
+
+using System;
+
+// Interface for result calculation
+interface IResult
+{
+    void CalculateResult(string s, int m);
+}
+
+// Base class Person
+class Person
+{
+    protected string Name;
+    protected string Address;
+    protected int ContactNo;
+
+    public void SetData(string n, string a, int c)
+    {
+        Name = n;
+        Address = a;
+        ContactNo = c;
+    }
+
+    public void DisplayData()
+    {
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"Address: {Address}");
+        Console.WriteLine($"Contact No: {ContactNo}");
+    }
+}
+
+// Derived class Student implementing IResult
+class Student : Person, IResult
+{
+    private int ID;
+    private int Marks;
+
+    public void GetDetail(int i, int m)
+    {
+        ID = i;
+        Marks = m;
+    }
+
+    public void DisplayDetail()
+    {
+        Console.WriteLine($"Student ID: {ID}");
+        Console.WriteLine($"Marks: {Marks}");
+    }
+
+    public void CalculateResult(string s, int m)
+    {
+        if (s.ToLower() == "yes")
+        {
+            m += 5; // Adding extra 5 marks for sports students
+            Console.WriteLine($"Final Marks after adding sports bonus: {m}");
+        }
+        else
+        {
+            Console.WriteLine($"Final Marks: {m}");
+        }
+    }
+}
+
+// Main class
+class Program
+{
+    static void Main()
+    {
+        Student student = new Student();
+
+        // Input person details
+        Console.Write("Enter Name: ");
+        string name = Console.ReadLine();
+
+        Console.Write("Enter Address: ");
+        string address = Console.ReadLine();
+
+        Console.Write("Enter Contact No: ");
+        int contact = int.Parse(Console.ReadLine());
+
+        student.SetData(name, address, contact);
+
+        // Input student details
+        Console.Write("Enter Student ID: ");
+        int id = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter Marks: ");
+        int marks = int.Parse(Console.ReadLine());
+
+        student.GetDetail(id, marks);
+
+        // Displaying details
+        Console.WriteLine("\n--- Student Details ---");
+        student.DisplayData();
+        student.DisplayDetail();
+
+        // Checking if student is a sportsperson
+        Console.Write("\nIs the student a sports person? (yes/no): ");
+        string isSportsPerson = Console.ReadLine();
+
+        // Calculate and display result
+        student.CalculateResult(isSportsPerson, marks);
+    }
+}
