@@ -1,0 +1,51 @@
+// Write a C# program to implement the concept of an **interface** for a **Bank Rate of Interest (ROI)**. Define an interface `IBank` with a method `GetRateOfInterest()`. Create three different bank classes (`SBI`, `HDFC`, `ICICI`) that implement this interface and provide their respective interest rates. In the `Main` method, create objects of these classes and display their interest rates.
+
+using System;
+
+// Defining the interface for Bank ROI
+interface IBank
+{
+    double GetRateOfInterest(); // Abstract method to get interest rate
+}
+
+// SBI Bank implementing the interface
+class SBI : IBank
+{
+    public double GetRateOfInterest()
+    {
+        return 5.5; // SBI interest rate
+    }
+}
+
+// HDFC Bank implementing the interface
+class HDFC : IBank
+{
+    public double GetRateOfInterest()
+    {
+        return 6.7; // HDFC interest rate
+    }
+}
+
+// ICICI Bank implementing the interface
+class ICICI : IBank
+{
+    public double GetRateOfInterest()
+    {
+        return 7.2; // ICICI interest rate
+    }
+}
+
+// Main class to test the functionality
+class Program
+{
+    static void Main()
+    {
+        IBank sbi = new SBI();
+        IBank hdfc = new HDFC();
+        IBank icici = new ICICI();
+
+        Console.WriteLine("SBI Bank Interest Rate: " + sbi.GetRateOfInterest() + "%");
+        Console.WriteLine("HDFC Bank Interest Rate: " + hdfc.GetRateOfInterest() + "%");
+        Console.WriteLine("ICICI Bank Interest Rate: " + icici.GetRateOfInterest() + "%");
+    }
+}
