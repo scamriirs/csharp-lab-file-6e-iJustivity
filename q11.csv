@@ -1,5 +1,6 @@
 // Write a C# program to implement an **interface** for a class `Person` with attributes `Name`, `Address`, and `ContactNo`, and methods `SetData(string n, string a, int c)` to store details and `DisplayData()` to display them. Create a `Student` class inheriting `Person` with attributes `ID` and `Marks`, and methods `GetDetail(int i, int m)`, `DisplayDetail()`, and `CalculateResult(string s, int m)`. Implement an interface `IResult` with the method `CalculateResult(string s, int m)`, which `Student` must override. Take user input to check if the student is a sports person—if yes, add 5 extra marks; otherwise, display the marks as they are. Use **inheritance, interface implementation, method overriding, and user input handling** to compute and display the final marks.
 
+
 using System;
 
 // Interface for result calculation
