@@ -1,0 +1,42 @@
+// WAP to show the usage of message form
+
+
+using System;
+using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+
+class MessageForm : Form
+{
+    private Button showMessageButton;
+
+    public MessageForm()
+    {
+        // Initialize Button
+        showMessageButton = new Button();
+        showMessageButton.Text = "Click Me";
+        showMessageButton.Width = 100;
+        showMessageButton.Height = 40;
+        showMessageButton.Top = 50;
+        showMessageButton.Left = 50;
+
+        // Add Click event handler
+        showMessageButton.Click += ShowMessageButton_Click;
+
+        // Add Button to Form
+        Controls.Add(showMessageButton);
+    }
+
+    private void ShowMessageButton_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("Hello! This is a message form.", "Message Form", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    [STAThread]
+    static void Main()
+    {
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new MessageForm());
+    }
+}
+
