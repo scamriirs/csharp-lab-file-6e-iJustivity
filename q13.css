@@ -1,0 +1,45 @@
+// WAP to show the concept of read and write peoperties
+
+using System;
+
+class Person
+{
+    private string name;
+    private int age;
+
+    // Read and Write Property for Name
+    public string Name
+    {
+        get { return name; } // Read
+        set { name = value; } // Write
+    }
+
+    // Read and Write Property for Age with validation
+    public int Age
+    {
+        get { return age; } // Read
+        set
+        {
+            if (value > 0)
+                age = value; // Write
+            else
+                Console.WriteLine("Age must be positive.");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Person person = new Person();
+
+        // Setting values using properties (Write)
+        person.Name = "John Doe";
+        person.Age = 25;
+
+        // Getting values using properties (Read)
+        Console.WriteLine("Name: " + person.Name);
+        Console.WriteLine("Age: " + person.Age);
+    }
+}
