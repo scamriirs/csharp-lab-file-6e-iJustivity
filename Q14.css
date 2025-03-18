@@ -1,0 +1,68 @@
+// WAP to show indexer oveerloading
+
+using System;
+
+class StudentRecords
+{
+    private string[] studentNames = new string[5];
+    private int[] studentAges = new int[5];
+
+    // Indexer to access students by index (integer)
+    public string this[int index]
+    {
+        get { return studentNames[index]; }
+        set { studentNames[index] = value; }
+    }
+
+    // Overloaded Indexer to access student age by name (string)
+    public int this[string name]
+    {
+        get
+        {
+            for (int i = 0; i < studentNames.Length; i++)
+            {
+                if (studentNames[i] == name)
+                    return studentAges[i];
+            }
+            throw new Exception("Student not found");
+        }
+        set
+        {
+            for (int i = 0; i < studentNames.Length; i++)
+            {
+                if (studentNames[i] == name)
+                {
+                    studentAges[i] = value;
+                    return;
+                }
+            }
+            throw new Exception("Student not found");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        StudentRecords records = new StudentRecords();
+
+        // Using indexer with int
+        records[0] = "Alice";
+        records[1] = "Bob";
+        records[2] = "Charlie";
+        records[3] = "David";
+        records[4] = "Eve";
+
+        // Using overloaded indexer with string
+        records["Alice"] = 20;
+        records["Bob"] = 22;
+        records["Charlie"] = 19;
+        records["David"] = 21;
+        records["Eve"] = 23;
+
+        // Retrieving values
+        Console.WriteLine("Student at index 2: " + records[2]);
+        Console.WriteLine("Age of Bob: " + records["Bob"]);
+    }
+}
