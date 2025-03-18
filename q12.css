@@ -1,0 +1,46 @@
+using System;
+
+class SampleCollection
+{
+    private string[] data = new string[5];
+    
+    // Indexer Definition
+    public string this[int index]
+    {
+        get
+        {
+            if (index >= 0 && index < data.Length)
+                return data[index];
+            else
+                throw new IndexOutOfRangeException("Index out of range");
+        }
+        set
+        {
+            if (index >= 0 && index < data.Length)
+                data[index] = value;
+            else
+                throw new IndexOutOfRangeException("Index out of range");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        SampleCollection collection = new SampleCollection();
+        
+        // Using the indexer to set values
+        collection[0] = "C#";
+        collection[1] = "Java";
+        collection[2] = "Python";
+        collection[3] = "JavaScript";
+        collection[4] = "Ruby";
+        
+        // Using the indexer to get values
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"Element at index {i}: {collection[i]}");
+        }
+    }
+}
