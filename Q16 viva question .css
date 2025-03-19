@@ -1,0 +1,33 @@
+// Q!. WAP in c sharp to implement an array , follow the following instructions - crreate an array take input from user for 5 elements then multiply each element with 7 and sum the elements of odd side
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = new int[5];
+        int sumOddIndex = 0;
+
+        Console.WriteLine("Enter 5 elements:");
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Element {i + 1}: ");
+            arr[i] = int.Parse(Console.ReadLine());
+            arr[i] *= 7; // Multiply each element by 7
+        }
+
+        for (int i = 1; i < 5; i += 2)
+        {
+            sumOddIndex += arr[i];
+        }
+
+        Console.WriteLine("\nModified array (each element multiplied by 7):");
+        foreach (int num in arr)
+        {
+            Console.Write(num + " ");
+        }
+
+        Console.WriteLine($"\nSum of elements at odd indices: {sumOddIndex}");
+    }
+}
